@@ -37,8 +37,9 @@ y = [nox((find(time == t_tst_begin) - 1):-1:(find(time == t_tst_begin) - 24*365*
 D = [y, t_sec]; 
 
 % Average daily NOx:
-mu_tst = func_mean(t_tst, dataMatrix);
-y_ave = mu_tst(1:24);
+% mu_tst = func_mean(t_tst, dataMatrix);
+% y_ave = mu_tst(1:24);
+y_ave = mean(reshape(flip(y), 24, 365*5), 2);
 
 %Input:
 % y   - nx1 outputs from training set
